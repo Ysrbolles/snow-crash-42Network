@@ -1,0 +1,12 @@
+- When we entered to level06 user, We found 2 files level06 and level06.php
+
+- After read the php file and exec the executable file, we noticed that program take a file as argument and use 
+  some regex expressions on file content
+
+- The regex use the preg_replce func with /e modifier allows you to use PHP code within your regular expression
+
+- This is means that whatever you parse in will be evaluated as a part of your program
+
+- So we created a file /tmp/test with this content: [x {${shell_exec(getflag)}}]']
+
+- And after execute the file with ./level06 /tmp/test, We got the flag

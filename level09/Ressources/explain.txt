@@ -1,0 +1,20 @@
+- When we entered to level09 user, we found 2 files level09: executable file, token: data file.
+
+- We executed the file and we got a msg (You need to provide only one arg)
+
+- we add token as argument and we got a hashed text format, so we tested with a lot of cases like 
+    
+    a, ab, abc, 1, 111, 123...)
+
+- We noticed that the program hash with a method of adding the case index to every char.
+
+- When we check ltrace ./level09 we got the trace with this line 
+    (puts("You should not reverse this"...)
+
+- We made a C program that do the reverse login of the code(decrease the case index to every char).
+
+- We tested with the token file by (./a.out $(cat token))
+
+- We got a password that will help us to log in to flag09 user.
+
+- We launch getflag cmd, and we got the flag

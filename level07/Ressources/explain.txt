@@ -1,0 +1,9 @@
+- When we entered to level07 user, as we saw in level03 also here we found a executable file that show “level07”
+
+- So we launch the file with ltrace cmd to trace the execution of the file
+
+- we found that program use LOGNAME" env variable by cal getenv() func and print it
+
+- we change the value of the var in env with “export LOGNAME=’’;getflag”
+
+- We launched the program again and we got the flag

@@ -1,0 +1,17 @@
+- When we search in the etc/passwd file we found that the  flag01 user has a hashed password
+
+flag01:42hDRfypTqqnw:3001:3001::/home/flag/flag01:/bin/bash
+
+- To crack this password we used “John the Ripper” password cracker tool in a VM.
+
+- We created a file in the vm with this line 
+
+flag01:42hDRfypTqqnw:3001:3001::/home/flag/flag01:/bin/bash
+
+- We run john and show the cracked password:
+
+john --show passwd.txt => flag01:abcdefg:3001:3001::/home/flag/flag01:/bin/bash
+
+- We got the password: abcdefg, and we use it to login into flag01
+
+- We got the flag.

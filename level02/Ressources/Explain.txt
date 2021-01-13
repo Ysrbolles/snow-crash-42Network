@@ -1,0 +1,19 @@
+- We found a file with this name and extension: level02.pcap
+
+- We search about this type of file and we found that is mainly associated with Wireshark.
+
+- To read this file we installed Wireshark (the world's foremost and widely-used network protocol analyzer)
+
+- After install we open the file and we got the logs of connections.
+
+- We choose the first packet and a follow the TCP stream.
+
+- We got a stream content contains a password but in ascii format.
+
+ft_wandr...NDRel.L0L
+
+- So we convert it to UTF-8 and we got the password, and we use it to login into flag02
+
+ft_wandrNDRelL0L
+
+- We got the flag.

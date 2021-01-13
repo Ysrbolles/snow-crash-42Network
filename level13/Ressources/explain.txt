@@ -1,0 +1,34 @@
+- When we entered to level13 user, we found a binary file level13
+
+- After execution we got this message (UID 2013 started us but we we expect 4242)
+
+- We understood that we should give the program a uid with 4242 number
+
+- After did a trace with ltrace we found that it uses the getuid func to get the uid of current user,
+  exactly as the program said our uid is 2013.
+
+- We searched about how we can change 
+the value returning from getuid func
+
+- The best way to do that is to use gdb (GNU debugger), that help us debug the program and 
+  follow step by step and change thier value.
+
+- We launched the program with gdb (gdb level13) and break to getuid func (break getuid)
+
+- We started the execution of program by (run)
+
+- We print the value $eax (which is a processor register variable that getuid func use it to store data)
+
+    we got $eax = 1 => is the default value in start
+
+- We started debugging the func with (step), and after we printed the value 
+
+    we got $eax = 2013 => this is our uid
+
+- We changed the value of this register to 4242 with (set $eax = 4242)
+
+     we print it again and we got 4242
+    
+- We continue the execution by (c)
+   
+- Finally we got the flag

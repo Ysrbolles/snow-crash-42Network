@@ -1,0 +1,19 @@
+- Find the list of users
+
+cat /etc/passwd
+
+- We found user (flag00), so we need to search for his files
+
+find / -user flag00 2>/dev/null
+
+- We found 2 files with the same content
+
+cat /usr/sbin/john => cdiiddwpgswtgt
+cat /rofs/usr/sbin/john => cdiiddwpgswtgt
+
+- We tried with this password to login but we failed, so we need to try with decrypt it 
+with (https://www.dcode.fr/caesar-cipher) we got a list of decoded strings:
+
+we chose the first one (nottoohardhere) and it worked.
+
+- We logged to the flag00 user and we got the flag.

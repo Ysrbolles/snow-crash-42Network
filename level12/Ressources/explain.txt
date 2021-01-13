@@ -1,0 +1,13 @@
+- When we entered to level12 user, we found a file written with perl.
+
+- This file host a web server and take 2 params (x, y).
+
+- We found that the program convert the param to uppercase and it execute a command that took the x param
+
+- We think to inject a getflag inside this command
+
+- We create a file /tmp/AYOUB with this test:
+
+ “getflag > /tmp/flag”, and we curl this site: curl '${IP}?x=$(/*/AYOUB)'
+
+- We got the flag in /tmp/flag.

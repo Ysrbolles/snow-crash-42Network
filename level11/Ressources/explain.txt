@@ -1,0 +1,20 @@
+- When we entered to level11 user, we found a file with (.lua) extension 
+  and it is a code writing by lua programming language.
+
+- We read the code we conclude that it open a connection on localhost in port 5151. and it receive a password
+
+    client:send("Password: ")
+
+
+- The program hash that password with sha1sum and compare it to a hash.
+
+- It use io.popen function, and this func allows you to executes a command,
+  it used to echo the password with sha1sum hashing
+
+
+- We exploited this function to execute the getflag command by:
+
+    ($(getflag) > /tmp/test)
+
+
+- We read /tmp/test file we got the flag.

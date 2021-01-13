@@ -1,0 +1,33 @@
+- In this level, when we entred to level14 user we didn't found any file or something that will help us.
+
+- We tested to launch the getflag command directly and it didn't work.
+
+- We tried to reverse the program by change the uid from our uid to the flag14 uid.
+
+- The best way to do that is to use gdb (GNU debugger), that help us debug the program and 
+  follow step by step and change thier value.
+
+- But this time we got a msg (You should not reverse this).
+  ==> So we think that there is something that block us to debug the program.
+
+- After did a trace with ltrace we found that it uses the ptrace func that detect if we are using a debbuger (GDB).
+
+- The ptrace func returns (-1), in case of error, so we tried to chnage its return value from -1 to 0.
+
+- We launched the program with gdb (gdb level14) and break to ptrace func (break ptrace)
+
+(gdb) print $eax // = 0
+(gdb) step
+(gdb) print $eax // = -1
+(gdb) set $eax = 0 // = 0
+
+- Now we are good with ptarce, and we chnage the getuid return to the flag14 uid
+
+(gdb) print $eax // = 32
+(gdb) step
+(gdb) print $eax // = 2014
+(gdb) set $eax = 3014 // = 3014
+
+- We continue the execution by (c)
+   
+- Finally we got the flag

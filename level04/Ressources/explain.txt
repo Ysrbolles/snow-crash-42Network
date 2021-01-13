@@ -1,0 +1,15 @@
+- When we entered to level04 user, we found a file (level04.pl) with perl programming language
+
+- After we cat the file we found that the program launch a website on localhost with port : 4747
+
+- this website parse the query string params from url and print it with echo 
+
+- the param name in the query string is “x”
+
+- So we tried with a simple example like : 
+    
+    "localhost:4747/?x=ayoub" and we got => ayoub.
+
+- So we tired to inject the getflag cmd with curl => curl 'localhost:4747/?x=$(getflag)'
+
+- And we got the flag

@@ -1,0 +1,18 @@
+- When we entered a level08 user, we found 2 files, level08: executable file, 
+  token we don’t have permission to read it.
+
+- When we test with ./level08 token, we got (You may not access 'token')
+
+
+- When we try with other not permitted file we got another msg (level08: Unable to
+  open .profile: Permission denied)
+
+- We created a symbolic links for this file to /tmp/token (ln -s /home/user/level08/token /tmp/token)
+
+  it didn’t work
+
+- After do a ltrace for the execution file we found that it use strstr func to compare if the file == token
+
+- We changed the link from /tmp/token to /tmp/test, and we launched again and we got the password of the flag08 user
+
+- We logged in and we type getflag and we got the flag.

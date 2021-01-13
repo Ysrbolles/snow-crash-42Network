@@ -1,0 +1,17 @@
+- When we entered to level05 user, we didn’t found any file this time 
+
+
+- We didn’t found any file this time, but we searched about all file that owned by flag05, 
+and we found 2 files, we can read one of them.
+
+- This one wrote with sh scripting, and this script executes all file in /opt/openarenaserver and delete them.
+
+- We created a file that execute getflag cmd and print it in /tmp/flag
+
+- but we don’t have also the permission to execute the script in /usr/sbin/openarenaserver
+
+- By accident we noticed that the file we created is deleted from that folder
+
+- We concluded that there is a cron tab that launch the script
+
+- And we got the flag in /tmp/flag
